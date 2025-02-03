@@ -17,7 +17,7 @@ bool Perceptron::output(std::vector<bool> inputs) {
             total_sum += this->weights[i];
         }
     }
-    return (total_sum > -this->bias);
+    return (total_sum >= -this->bias);
 }
 
 std::string Perceptron::__str__() { return this->name; }
