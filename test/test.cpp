@@ -4,7 +4,7 @@
 
 #include "../src/include/perceptron.hpp"
 #include "../src/include/perceptronlayer.hpp"
-#include "../src/include/perceptronnetwork.hpp"
+/* #include "../src/include/perceptronnetwork.hpp" */
 
 // Test perceptron unit
 TEST_CASE("Test INVERT-gate") {

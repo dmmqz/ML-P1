@@ -1,23 +1,18 @@
+#include "include/perceptronlayer.hpp"
 #include "include/perceptron.hpp"
 
-#include <string>
-#include <vector>
-
-Perceptron::Perceptron(std::vector<double> weights, double bias,
-                       std::string name) {
-    this->weights = weights;
-    this->bias = bias;
+PerceptronLayer::PerceptronLayer(std::vector<Perceptron> perceptrons,
+                                 std::string name) {
+    this->perceptrons = perceptrons;
     this->name = name;
 }
 
-bool Perceptron::output(std::vector<bool> inputs) {
-    double total_sum = 0;
-    for (int i = 0; i < inputs.size(); i++) {
-        if (inputs[i]) {
-            total_sum += this->weights[i];
-        }
+std::vector<bool> PerceptronLayer::output(std::vector<bool> inputs) {
+    std::vector<bool> outputs;
+    for (Perceptron &perceptron : this->perceptrons) {
+        outputs.push_back(perceptron.output(inputs));
     }
-    return (total_sum > -this->bias);
+    return outputs;
 }
 
-std::string Perceptron::__str__() { return this->name; }
+std::string PerceptronLayer::__str__() { return this->name; }
