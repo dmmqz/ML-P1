@@ -16,5 +16,6 @@ add_executable(main
 add_executable(test
     src/perceptron.cpp
     src/perceptronlayer.cpp
+    src/perceptronnetwork.cpp
     test/test.cpp
 )

@@ -4,7 +4,7 @@
 
 #include "../src/include/perceptron.hpp"
 #include "../src/include/perceptronlayer.hpp"
-/* #include "../src/include/perceptronnetwork.hpp" */
+#include "../src/include/perceptronnetwork.hpp"
 
 // Test perceptron unit
 TEST_CASE("Test INVERT-gate") {
@@ -61,4 +61,17 @@ TEST_CASE("Test custom gate") {
     REQUIRE(!customGate.output({false, true, false}));
     REQUIRE(!customGate.output({false, false, true}));
     REQUIRE(!customGate.output({false, false, false}));
+}
+
+TEST_CASE("Test XOR-gate") {
+    PerceptronLayer layer1 = PerceptronLayer(
+        {Perceptron({0.5, 0.5}, -0.5), Perceptron({-2, -2}, 3)});
+    PerceptronLayer layer2 = PerceptronLayer({Perceptron({0.5, 0.5}, -1)});
+
+    PerceptronNetwork xorGate = PerceptronNetwork({layer1, layer2});
+
+    REQUIRE(!xorGate.output({false, false})[0]);
+    REQUIRE(xorGate.output({true, false})[0]);
+    REQUIRE(xorGate.output({false, true})[0]);
+    REQUIRE(!xorGate.output({true, true})[0]);
 }
