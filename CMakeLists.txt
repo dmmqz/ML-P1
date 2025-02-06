@@ -9,7 +9,6 @@ include_directories(
 )
 
 add_executable(main
-    src/perceptron.cpp
     main.cpp
 )
 

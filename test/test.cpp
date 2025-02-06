@@ -70,6 +70,7 @@ TEST_CASE("Test XOR-gate") {
 
     PerceptronNetwork xorGate = PerceptronNetwork({layer1, layer2});
 
+    // True if only one input is true
     REQUIRE(!xorGate.output({false, false})[0]);
     REQUIRE(xorGate.output({true, false})[0]);
     REQUIRE(xorGate.output({false, true})[0]);
@@ -82,10 +83,12 @@ TEST_CASE("Test Half Adder") {
     PerceptronLayer layer2 =
         PerceptronLayer({Perceptron({0.5, 0.5}, -1), Perceptron({1, -2}, -1)});
 
-    PerceptronNetwork xorGate = PerceptronNetwork({layer1, layer2});
+    PerceptronNetwork halfAdder = PerceptronNetwork({layer1, layer2});
 
-    REQUIRE(xorGate.output({false, false}) == std::vector<bool>{false, false});
-    REQUIRE(xorGate.output({true, false}) == std::vector<bool>{true, false});
-    REQUIRE(xorGate.output({false, true}) == std::vector<bool>{true, false});
-    REQUIRE(xorGate.output({true, true}) == std::vector<bool>{false, true});
+    // First output is XOR, second is AND
+    REQUIRE(halfAdder.output({false, false}) ==
+            std::vector<bool>{false, false});
+    REQUIRE(halfAdder.output({true, false}) == std::vector<bool>{true, false});
+    REQUIRE(halfAdder.output({false, true}) == std::vector<bool>{true, false});
+    REQUIRE(halfAdder.output({true, true}) == std::vector<bool>{false, true});
 }
