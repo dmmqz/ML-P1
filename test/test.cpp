@@ -8,17 +8,15 @@
 
 // Test perceptron unit
 TEST_CASE("Test INVERT-gate") {
-    Perceptron invertGate = Perceptron({-1}, 0.5, "INVERT-gate");
+    Perceptron invertGate = Perceptron({-1}, 0.5);
 
     // Return true if input is false, and vice versa
     REQUIRE(invertGate.output({false}));
     REQUIRE(!invertGate.output({true}));
-    // Test name method
-    REQUIRE(invertGate.__str__() == "INVERT-gate");
 }
 
 TEST_CASE("Test AND-gate") {
-    Perceptron andGate = Perceptron({0.5, 0.5}, -1, "AND-gate");
+    Perceptron andGate = Perceptron({0.5, 0.5}, -1);
 
     // Return true only if both inputs are true
     REQUIRE(andGate.output({true, true}));
@@ -28,7 +26,7 @@ TEST_CASE("Test AND-gate") {
 }
 
 TEST_CASE("Test OR-gate") {
-    Perceptron orGate = Perceptron({0.5, 0.5}, -0.5, "OR-gate");
+    Perceptron orGate = Perceptron({0.5, 0.5}, -0.5);
 
     // Return true if atleast one input is true
     REQUIRE(orGate.output({true, true}));
@@ -38,7 +36,7 @@ TEST_CASE("Test OR-gate") {
 }
 
 TEST_CASE("Test NOR-gate") {
-    Perceptron norGate = Perceptron({-1, -1, -1}, 0, "NOR-gate");
+    Perceptron norGate = Perceptron({-1, -1, -1}, 0);
 
     // Return true if all inputs are false
     REQUIRE(norGate.output({false, false, false}));
@@ -52,7 +50,7 @@ TEST_CASE("Test NOR-gate") {
 }
 
 TEST_CASE("Test custom gate") {
-    Perceptron customGate = Perceptron({0.6, 0.3, 0.2}, -0.4, "Custom gate");
+    Perceptron customGate = Perceptron({0.6, 0.3, 0.2}, -0.4);
 
     // true if inputs[0] OR (inputs[1] AND inputs[2])
     REQUIRE(customGate.output({true, false, false}));

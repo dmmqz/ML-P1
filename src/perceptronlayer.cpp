@@ -1,10 +1,10 @@
 #include "include/perceptronlayer.hpp"
 #include "include/perceptron.hpp"
 
-PerceptronLayer::PerceptronLayer(std::vector<Perceptron> perceptrons,
-                                 std::string name) {
+#include <iostream>
+
+PerceptronLayer::PerceptronLayer(std::vector<Perceptron> perceptrons) {
     this->perceptrons = perceptrons;
-    this->name = name;
 }
 
 std::vector<bool> PerceptronLayer::output(std::vector<bool> inputs) {
@@ -15,4 +15,9 @@ std::vector<bool> PerceptronLayer::output(std::vector<bool> inputs) {
     return outputs;
 }
 
-std::string PerceptronLayer::__str__() { return this->name; }
+void PerceptronLayer::__str__() {
+    for (Perceptron &p : this->perceptrons) {
+        std::cout << "Perceptron:" << std::endl;
+        p.__str__();
+    }
+}

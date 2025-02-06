@@ -1,13 +1,11 @@
 #include "include/perceptron.hpp"
 
-#include <string>
+#include <iostream>
 #include <vector>
 
-Perceptron::Perceptron(std::vector<double> weights, double bias,
-                       std::string name) {
+Perceptron::Perceptron(std::vector<double> weights, double bias) {
     this->weights = weights;
     this->bias = bias;
-    this->name = name;
 }
 
 bool Perceptron::output(std::vector<bool> inputs) {
@@ -20,4 +18,10 @@ bool Perceptron::output(std::vector<bool> inputs) {
     return (total_sum >= -this->bias);
 }
 
-std::string Perceptron::__str__() { return this->name; }
+void Perceptron::__str__() {
+    std::cout << "Bias: " << this->bias << std::endl;
+    std::cout << "Weights:" << std::endl;
+    for (const double &weight : this->weights) {
+        std::cout << weight << std::endl;
+    }
+}
