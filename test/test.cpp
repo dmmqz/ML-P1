@@ -75,3 +75,17 @@ TEST_CASE("Test XOR-gate") {
     REQUIRE(xorGate.output({false, true})[0]);
     REQUIRE(!xorGate.output({true, true})[0]);
 }
+
+TEST_CASE("Test Half Adder") {
+    PerceptronLayer layer1 = PerceptronLayer(
+        {Perceptron({0.5, 0.5}, -0.5), Perceptron({-2, -2}, 3)});
+    PerceptronLayer layer2 =
+        PerceptronLayer({Perceptron({0.5, 0.5}, -1), Perceptron({1, -2}, -1)});
+
+    PerceptronNetwork xorGate = PerceptronNetwork({layer1, layer2});
+
+    REQUIRE(xorGate.output({false, false}) == std::vector<bool>{false, false});
+    REQUIRE(xorGate.output({true, false}) == std::vector<bool>{true, false});
+    REQUIRE(xorGate.output({false, true}) == std::vector<bool>{true, false});
+    REQUIRE(xorGate.output({true, true}) == std::vector<bool>{false, true});
+}
