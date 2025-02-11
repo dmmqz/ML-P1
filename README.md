@@ -1,6 +1,9 @@
 # ML P1: Perceptrons
 Deze repository bevat de uitwerking voor ML P1 in C++.
 
+Student: Dylan McGivern
+Studentnummer: 1866428
+
 ## CMake
 Dit project maakt gebruik van CMake om te compilen. Volg de volgende commando's om dit project te compilen (mits je op een UNIX systeem zit):
 ```bash
