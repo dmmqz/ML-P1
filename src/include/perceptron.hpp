@@ -21,6 +21,11 @@ class Perceptron {
     double bias;
 
   public:
+    /**
+     * @brief Constructs a perceptron with weights and a bias
+     * @param weights The weights for each input
+     * @param bias The bias for this perceptron
+     */
     Perceptron(std::vector<double> weights, double bias);
     /**
      * @brief Method to get an output given inputs

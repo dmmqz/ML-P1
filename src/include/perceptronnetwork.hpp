@@ -20,6 +20,10 @@ class PerceptronNetwork {
     std::vector<PerceptronLayer> layers;
 
   public:
+    /**
+     * @brief Constructs a network of perceptrons
+     * @param layers The layers within the network
+     */
     PerceptronNetwork(std::vector<PerceptronLayer> layers);
     /**
      * @brief Gets the output(s) of a network

@@ -21,6 +21,10 @@ class PerceptronLayer {
     std::vector<Perceptron> perceptrons;
 
   public:
+    /**
+     * @brief Constructs a layer of perceptrons
+     * @param perceptrons Perceptrons of this layer
+     */
     PerceptronLayer(std::vector<Perceptron> perceptrons);
     /**
      * @brief Gets output of the layer given inputs
