@@ -1,5 +1,8 @@
-PROJECT_NAME           = "ML P1: Perceptrons"
-OUTPUT_DIRECTORY       = ./docs
-INPUT                  = .
-RECURSIVE              = YES
-EXCLUDE                = ./test/include/
+# Doxyfile 1.13.2
+
+PROJECT_NAME     = "P1 - Perceptron"
+OUTPUT_DIRECTORY = ./docs
+INPUT            = .
+RECURSIVE        = YES
+EXCLUDE          = ./test/include/
+GENERATE_LATEX   = NO

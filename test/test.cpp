@@ -35,7 +35,7 @@ TEST_CASE("Test OR-gate") {
     REQUIRE(!orGate.output({false, false}));
 }
 
-TEST_CASE("Test NOR-gate") {
+TEST_CASE("Test three input NOR-gate") {
     Perceptron norGate = Perceptron({-1, -1, -1}, 0);
 
     // Return true if all inputs are false
@@ -50,6 +50,7 @@ TEST_CASE("Test NOR-gate") {
 }
 
 TEST_CASE("Test custom gate") {
+    // Figuur 2.8 reader
     Perceptron customGate = Perceptron({0.6, 0.3, 0.2}, -0.4);
 
     // true if inputs[0] OR (inputs[1] AND inputs[2])
@@ -63,6 +64,7 @@ TEST_CASE("Test custom gate") {
     REQUIRE(!customGate.output({false, false, false}));
 }
 
+// Test layer/network
 TEST_CASE("Test XOR-gate") {
     PerceptronLayer layer1 = PerceptronLayer(
         {Perceptron({0.5, 0.5}, -0.5), Perceptron({-2, -2}, 3)});
@@ -81,11 +83,11 @@ TEST_CASE("Test Half Adder") {
     PerceptronLayer layer1 = PerceptronLayer(
         {Perceptron({0.5, 0.5}, -0.5), Perceptron({-2, -2}, 3)});
     PerceptronLayer layer2 =
-        PerceptronLayer({Perceptron({0.5, 0.5}, -1), Perceptron({1, -2}, -1)});
+        PerceptronLayer({Perceptron({0.5, 0.5}, -1), Perceptron({0, -1}, 0)});
 
     PerceptronNetwork halfAdder = PerceptronNetwork({layer1, layer2});
 
-    // First output is XOR, second is AND
+    // First output (sum) is XOR, second (carry) is AND
     REQUIRE(halfAdder.output({false, false}) ==
             std::vector<bool>{false, false});
     REQUIRE(halfAdder.output({true, false}) == std::vector<bool>{true, false});

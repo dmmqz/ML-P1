@@ -8,10 +8,6 @@ include_directories(
     src/include
 )
 
-add_executable(main
-    main.cpp
-)
-
 add_executable(test
     src/perceptron.cpp
     src/perceptronlayer.cpp
