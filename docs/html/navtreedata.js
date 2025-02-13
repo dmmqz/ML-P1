@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "ML P1: Perceptrons", "index.html", [
+  [ "P1 - Perceptron", "index.html", [
     [ "ML P1: Perceptrons", "md_README.html", [
       [ "CMake", "md_README.html#autotoc_md1", null ],
       [ "Doxygen", "md_README.html#autotoc_md2", null ]
