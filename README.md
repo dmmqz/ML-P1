@@ -1,7 +1,7 @@
 # ML P1: Perceptrons
-Deze repository bevat de uitwerking voor ML P1 in C++.
+Deze repository bevat de uitwerking voor ML: P1 - Perceptron in C++.
 
-Student: Dylan McGivern
+Student: Dylan McGivern<br>
 Studentnummer: 1866428
 
 ## CMake
@@ -11,12 +11,11 @@ mkdir temp/
 cd temp/
 cmake ..
 make
-./test # Dit runt de test executable, vervang het met ./main als je de main executable wilt runnen
+./test
 ```
 
 ## Doxygen
-Dit project maakt gebruik van Doxygen voor documentatie. Gebruik de volgende commando om de documentatie te genereren:
+Op het pad `docs/html/index.html` bevindt zich de documentatie voor deze opdracht. Dit bestand bevat documentatie voor alle klassen die zijn gemaakt. Mocht je de documentatie opnieuw willen genereren, gebruik dan de volgende commando (zorg wel dat je doxygen hebt geïnstalleerd op jouw systeem):
 ```bash
 doxygen Doxyfile
 ```
-Vervolgens kan je `docs/html/index.html` openen om de documentatie te bekijken.
